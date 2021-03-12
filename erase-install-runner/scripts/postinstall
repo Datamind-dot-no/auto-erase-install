@@ -1,0 +1,22 @@
+#!/bin/bash
+
+###########################      About this script      ##########################
+#                                                                                #
+#   Purpose:                                                                     #
+#            Loads the LaunchAgent for auto-erase-install-runner                 #
+#                                                                                #
+#   Created by Mart Verburg                                                      #
+#               March 2021                                                    #
+#                                                                                #
+#   Version history                                                              #
+#                                                                                #
+#                                                                                #
+#                                                                                #
+#   Instructions                                                                 #
+#            run automatically by installer when installing package              #                                                       #
+#                                                                                #
+##################################################################################
+
+launchctl load /Library/LaunchAgents/no.datamind.auto-erase-install-runner.plist
+
+
