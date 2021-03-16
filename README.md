@@ -10,7 +10,7 @@ As the process normally takes about 15-30 minutes, some user feedback is called 
 DEPNotify is used to get user confirmation before proceeding to use `erase-install.sh` to check for and download macOS installer if needed, and before running it again with `-erase`.
 The window is visible during macOS installer download phase and while macOS Installer' startos is preparing erase-install. 
 
-`erase-install.sh` uses osascript to prompt the user for account name and password on Apple Silicon M1 Macs. If and when [Erase&Install](https://bitbucket.org/prowarehouse-nl/erase-install/src/master/) is updated to support Apple Silicon, it will likely be a pretty good alternative ;-)
+`erase-install.sh` uses osascript to prompt the user for account name and password on Apple Silicon M1 Macs when running erase and/or install. If and when [Erase&Install](https://bitbucket.org/prowarehouse-nl/erase-install/src/master/) is updated to support Apple Silicon, it will likely be a pretty good alternative ;-)
 
 The auto-erase-install.sh script is persisted with a Launch Daemon to easily run it again if it would fail or abort the first time.
 Th LaunchDaemon redirects script output to a logfile at `/var/log/auto-erase-install.log` for debugging purposes. Also output from erase-install.sh can be found there.
