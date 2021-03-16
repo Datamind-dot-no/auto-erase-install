@@ -6,7 +6,7 @@
 #            Loads the LaunchAgent for auto-erase-install-runner                 #
 #                                                                                #
 #   Created by Mart Verburg                                                      #
-#               March 2021                                                    #
+#               March 2021                                                       #
 #                                                                                #
 #   Version history                                                              #
 #                                                                                #
@@ -17,6 +17,8 @@
 #                                                                                #
 ##################################################################################
 
-launchctl load /Library/LaunchAgents/no.datamind.auto-erase-install-runner.plist
+# unload any previous version that may have been around, particularly during testing ;-)
+launchctl unload /Library/LaunchDaemons/no.datamind.auto-erase-install-runner.plist
+launchctl load -w /Library/LaunchDaemons/no.datamind.auto-erase-install-runner.plist
 
 

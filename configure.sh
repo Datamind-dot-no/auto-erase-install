@@ -4,9 +4,9 @@
 # Workflow is to 
 #  - git clone dependencies into leaf folders beside this repo main folder, then 
 #  - make (build/make script or munkipkg) dependencies, 
-#  - symlink dependencies into build/include pkgs folder in this repo
+#  - symlink dependencies into build/include-pkgs folder in this repo
 #  - build main distribution pkg
-#  - git commit for distrubution pkg
+#  - git commit for distribution pkg
 #  - repeat 
 #      - update local git repo or it's dependencies, commit and git push origin
 #      - make dependencies, 
@@ -29,6 +29,7 @@ sudo cp munkipkg /usr/local/bin/
 
 # clone this repo for standalone distribution pkg to automate running erase-install.sh
 git clone https://github.com/codeskipper/auto-erase-install.git
+mkdir -p "$dev_main/auto-erase-install/build/include-pkgs"
 
 # erase-install-runner pkg to automate running erase-install
 munkipkg "$dev_main/auto-erase-install/erase-install-runner"
@@ -50,6 +51,7 @@ make
 ln -s "$dev_main/auto-erase-install/erase-install-runner/build/erase-install-0.18.0.pkg" "$dev_main/auto-erase-install/build/include-pkgs/"
 
 munkipkg "$dev_main/auto-erase-install/erase-install-runner"
+munkipkg --export-bom-info "$dev_main/auto-erase-install/erase-install-runner"
 ln -s "$dev_main/auto-erase-install/erase-install-runner/build/erase-install-runner-0.02.pkg" "$dev_main/auto-erase-install/build/include-pkgs/"
 
 cd "$dev_main/auto-erase-install/build/include-pkgs/"
