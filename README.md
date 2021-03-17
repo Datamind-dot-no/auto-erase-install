@@ -1,7 +1,11 @@
+![auto-erase-install icon](/auto-erase-install-resources/auto-erase-install.png)
+
 # auto-erase-install
 automate running [Graham Pugh](https://github.com/grahampugh)'s [erase-install.sh](https://github.com/grahampugh/erase-install) with user feedback and getting user confirmation using [DEPnotify](https://gitlab.com/Mactroll/DEPNotify), rolled into a standalone distribution pkg
 
-Primary use-case for this standalone package is to erase and reinstall a Mac which is not (yet) enrolled into MDM. 
+Primary use-case for this standalone package is to erase and reinstall a Mac which is not (yet) enrolled into MDM.
+
+**WARNING. This is a self-destruct script. Do not try it out on your own device!**
 
 As the process normally takes about 15-30 minutes, some user feedback is called for while waiting. 
 
@@ -16,3 +20,7 @@ The auto-erase-install.sh script is persisted with a Launch Daemon to easily run
 The LaunchDaemon redirects script output to a logfile at `/var/log/auto-erase-install.log` for debugging purposes. Output from erase-install.sh can also be found there.
 
 `diskutil apfs updatepreboot /` is run on an M1 before calling erase-install.sh to avoid an issue with `startos -erase-install` failing to recognize an admin user as such.
+
+a signed package is available in [the releases](https://github.com/Datamind-dot-no/auto-erase-install/releases)
+
+Screenshots for a (debug) run are in [this wiki page](https://github.com/Datamind-dot-no/auto-erase-install/wiki/auto-erase-install---doing-it-manually)
