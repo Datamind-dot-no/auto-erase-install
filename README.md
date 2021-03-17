@@ -3,9 +3,13 @@
 # auto-erase-install
 automate running [Graham Pugh](https://github.com/grahampugh)'s [erase-install.sh](https://github.com/grahampugh/erase-install) with user feedback and getting user confirmation using [DEPnotify](https://gitlab.com/Mactroll/DEPNotify), rolled into a standalone distribution pkg
 
-Primary use-case for this standalone package is to erase and reinstall a Mac which is not (yet) enrolled into MDM.
+Primary use-case for this standalone package is to erase and reinstall a Mac which is not (yet) enrolled into MDM. 
 
 **WARNING. This is a self-destruct script. Do not try it out on your own device!**
+
+Easier than using Recovery mode for a not so tech savvy user, and does not require a lengthy user instruction to cover different macOS versions. Especially helpful if the Mac has a firmware password set, an admin user does not need the firmware password to erase and reinstall this way.
+
+Works on Macs running macOS High Sierra version 13.x or later due to APFS requirement for the -erase-install option in macOS installers' startosinstall.  Runs on either Intel or Apple Silicon M1 Macs.
 
 As the process normally takes about 15-30 minutes, some user feedback is called for while waiting. 
 
