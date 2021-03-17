@@ -27,7 +27,7 @@ git clone https://github.com/munki/.git
 cd munki-pkg
 sudo cp munkipkg /usr/local/bin/
 
-# clone this repo for standalone distribution pkg to automate running erase-install.sh
+# clone this repo
 git clone https://github.com/codeskipper/auto-erase-install.git
 mkdir -p "$dev_main/auto-erase-install/build/include-pkgs"
 
@@ -57,10 +57,12 @@ ln -s "$dev_main/auto-erase-install/erase-install-runner/build/erase-install-run
 cd "$dev_main/auto-erase-install/build/include-pkgs/"
 curl https://files.nomad.menu/DEPNotify.pkg -o DEPNotify-1.1.6.pkg
 
+ln -s "$dev_main/auto-erase-install/auto-erase-install-resources/auto-erase-install.png" "$dev_main/auto-erase-install/erase-install-runner/payload/Library/Management/erase-install/Resources"
+
 cd "$dev_main/auto-erase-install/build"
 productbuild --package "$dev_main/auto-erase-install/build/include-pkgs/erase-install-0.18.0.pkg" \
     --package "$dev_main/auto-erase-install/build/include-pkgs/DEPnotify-1.1.6.pkg" \
     --package "$dev_main/auto-erase-install/build/include-pkgs/erase-install-runner-0.02.pkg" \
+    --sign "Developer ID Installer: macDevPlaceHolder (XYZ123456)" \
     auto-erase-install-0.02.pkg
-    
-    
+

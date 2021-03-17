@@ -94,6 +94,7 @@ fi
 doDEPNotify "Command: MainTitle: Auto Erase Install"
 doDEPNotify "Command: MainText: Getting ready to ERASE and reinstall this Mac. \n\n The process normally takes about 15-30 minutes with a normal download speed on a internet connection of 50Mbps or better. \n A macOS installer will be downloaded if needed. \n\n Please ensure any data you need to keep is backed up elsewhere before proceeding."
 doDEPNotify "Command: WindowStyle: ActivateOnStep"
+doDEPNotify "Command: Image: /Library/Management/erase-install/Resources/auto-erase-install.png"
 
 # macOS 10.13 and higher are supported because only APFS can be used for erase-onstall
 # Thanks to Armin Briegel for https://gist.github.com/scriptingosx/670991d7ec2661605f4e3a40da0e37aa

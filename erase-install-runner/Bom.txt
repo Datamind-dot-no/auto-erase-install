@@ -1,0 +1,9 @@
+.	40755	0/0
+./Library	40755	0/0
+./Library/LaunchAgents	40755	0/0
+./Library/LaunchAgents/._no.datamind.auto-erase-install-runner.plist	100644	0/0	0	0
+./Library/LaunchAgents/no.datamind.auto-erase-install-runner.plist	100644	0/0	424	3323711379
+./Library/Management	40755	0/0
+./Library/Management/erase-install	40755	0/0
+./Library/Management/erase-install/auto-erase-install.sh	100755	0/0	3376	2077711068
+./Library/Management/erase-install/erase-install-DEPnotify.txt	100644	0/0	358	598538090
