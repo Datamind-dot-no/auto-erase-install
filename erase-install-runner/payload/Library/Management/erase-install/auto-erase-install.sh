@@ -55,8 +55,8 @@ function kill_process() {
 
 # Wait until Finder is running to ensure a console user is logged in
 while ! pgrep -q Finder ; do
-		timestamp=$(date +%Y-%m-%dT%H:%M:%S%z)
 		log "Waiting until console user is logged in"
+		sleep 10
 done
 
 # get Console user
@@ -92,7 +92,7 @@ else
 		log "[auto-erase-install.sh] Did not find DEPNotify.app to open" 
 fi
 doDEPNotify "Command: MainTitle: Auto Erase Install"
-doDEPNotify "Command: MainText: Getting ready to ERASE and reinstall this Mac. \n\n The process normally takes about 15-30 minutes with a normal download speed on a internet connection of 50Mbps or better. \n A macOS installer will be downloaded if needed. \n\n Please ensure any data you need to keep is backed up elsewhere before proceeding."
+doDEPNotify "Command: MainText: Getting ready to ERASE and reinstall this Mac. \n\n The process normally takes about 15-30 minutes with on a internet connection of 50Mbps or better. \n A macOS installer will be downloaded if needed. \n\n Please ensure any data you need to keep is backed up elsewhere before proceeding."
 doDEPNotify "Command: WindowStyle: ActivateOnStep"
 doDEPNotify "Command: Image: /Library/Management/erase-install/Resources/auto-erase-install.png"
 
@@ -153,10 +153,10 @@ if [[ "$arch" == "arm64" ]]; then
 fi
 
 # start the download, and then erase-install 
-doDEPNotify "Status: starting macOS installer check, download if needed"
+doDEPNotify "Status: starting macOS installer check, and download if needed"
 /Library/Management/erase-install/erase-install.sh --replace_invalid --sameos
 
-doDEPNotify "Status: starting macOS installer with erase-install"
+doDEPNotify "Status: starting macOS installer with erase-install option"
 /Library/Management/erase-install/erase-install.sh --sameos --erase
 
 # script is supposed to be aborted by macOS' installer startos --eraseinstall at this point
