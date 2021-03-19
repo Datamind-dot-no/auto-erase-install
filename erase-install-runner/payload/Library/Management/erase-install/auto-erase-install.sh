@@ -86,7 +86,7 @@ if [[ -x "$DEPNotify/Contents/MacOS/DEPNotify" ]]; then
 	# remove any existing commandfile before start
 	rm -f "$DEPNotify_CommandFile"
 	
-	# ToDo: should maybe run as current console user, but sudo -u "$current_user" throws open error "The executable is missing"
+	# ToDo: should maybe run as current console user, but sudo -u "$current_user" throws open error "The executable is missing", and seems to run as console user anyway
 	open "$DEPNotify"
 else
 		log "[auto-erase-install.sh] Did not find DEPNotify.app to open" 
@@ -142,7 +142,7 @@ arch=$(/usr/bin/arch)
 	# Run updatepreboot on a Silicon M1 Mac to prevent issue with startosinstall complaining about user not being an admin
 if [[ "$arch" == "arm64" ]]; then 
 	#echo "Command: WindowStyle: Activate" >> "$DEPNotify_CommandFile"
-	doDEPNotify "Status: updating preboot to prevent issue startosinstall on M1 Macs"
+	doDEPNotify "Status: updating preboot to prevent issue running startosinstall on M1 Macs"
 	result=$(diskutil apfs updatepreboot / | grep "overall error=(ZeroMeansSuccess)=0")
 	# check if it went as planned
 	if [[ $? != 0 ]]; then
@@ -155,6 +155,8 @@ fi
 # start the download, and then erase-install 
 doDEPNotify "Status: starting macOS installer check, and download if needed"
 /Library/Management/erase-install/erase-install.sh --replace_invalid --sameos
+
+#doDEPNotify "Command: WidowStyle: Activate"
 
 doDEPNotify "Status: starting macOS installer with erase-install option"
 /Library/Management/erase-install/erase-install.sh --sameos --erase

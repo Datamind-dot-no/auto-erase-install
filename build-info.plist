@@ -5,7 +5,7 @@
 	<key>distribution_style</key>
 	<false/>
 	<key>identifier</key>
-	<string>com.github.munki.pkg.auto-erase-install</string>
+	<string>no.datamind.auto-erase-install</string>
 	<key>install_location</key>
 	<string>/</string>
 	<key>name</key>
