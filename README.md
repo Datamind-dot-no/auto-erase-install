@@ -25,6 +25,6 @@ The LaunchDaemon redirects script output to a logfile at `/var/log/auto-erase-in
 
 `diskutil apfs updatepreboot /` is run on an M1 before calling erase-install.sh to avoid an issue with `startos -erase-install` failing to recognize an admin user as such.
 
-a signed package is available in [the releases](https://github.com/Datamind-dot-no/auto-erase-install/releases)
+A signed and notaried package is available in [the releases](https://github.com/Datamind-dot-no/auto-erase-install/releases) That helps to make it trustworthy and easy to install for end-users.
 
 Screenshots for a (debug) run are in [this wiki page](https://github.com/Datamind-dot-no/auto-erase-install/wiki/auto-erase-install---doing-it-manually)
