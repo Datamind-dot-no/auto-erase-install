@@ -23,10 +23,10 @@ The window is visible during macOS installer download phase and while macOS Inst
 The auto-erase-install.sh script is persisted with a Launch Daemon to easily run it again if it would fail or abort the first time.
 The LaunchDaemon redirects script output to a logfile at `/var/log/auto-erase-install.log` for debugging purposes. Output from erase-install.sh can also be found there. 
 
-A signed and notarised package is available in [the releases](https://github.com/Datamind-dot-no/auto-erase-install/releases) That helps to make it trustworthy and easy to install for end-users.
+A signed and notarized package is available in [the releases](https://github.com/Datamind-dot-no/auto-erase-install/releases) That helps to make it trustworthy and easy to install for end-users.
 
 Screenshots for a (debug) run are in [this wiki page](https://github.com/Datamind-dot-no/auto-erase-install/wiki/auto-erase-install---doing-it-manually)
 
-Building the package is done by running the `build.zsh` script. In order to do so, you need to prepare a `buils-secrets.plist` file with your Apple developer settings for signing and notarizing the package. You can copy `build-secrets-example.plist` to use as a template.
+Building the package is done by running the `build.zsh` script. In order to do so, you need to prepare a `build-secrets.plist` file with your Apple developer settings for signing and notarizing the package. You can copy `build-secrets-example.plist` to use as a template.
 
-Release 0.1.0 uses the --update command in the call to `erase-install.sh` in order to get the latest macOS version available. If you need an updated version that keeps the same macOS version instead of upgrading, you can add the "--sameOS" argument in `auto-erase-install.sh`. For forced upgrading use "--reinstall" instead of "--erase" in the invocation.
+Release 0.1.0 uses the --update command in the call to `erase-install.sh` in order to get the latest macOS version available. If you need an updated version that keeps the same macOS version instead of upgrading, you can add the "--sameOS" argument in `auto-erase-install.sh`.
