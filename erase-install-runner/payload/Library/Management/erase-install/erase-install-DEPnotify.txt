@@ -1,6 +1,0 @@
-Command: MainTitle: Auto Erase Install
-Command: MainText: Getting ready to erase and reinstall this Mac. \n \n The process can take 15-30 minutes. \n That is including downoading a macOS installer if needed \n with a normal download speed on a > 50Mbps internet connection.
-Command: WindowStyle: ActivateOnStep
-Command: Determinate: 10
-Status: preparing...
-

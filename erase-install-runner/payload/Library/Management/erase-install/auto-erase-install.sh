@@ -137,29 +137,32 @@ done
 
 doDEPNotify "Command: Determinate: 5"
 
+## UpdatePreboot section, now provided by erase-install v0.19.0
 # find out if we're running on Intel or Apple Silicone
-arch=$(/usr/bin/arch)
-	# Run updatepreboot on a Silicon M1 Mac to prevent issue with startosinstall complaining about user not being an admin
-if [[ "$arch" == "arm64" ]]; then 
-	#echo "Command: WindowStyle: Activate" >> "$DEPNotify_CommandFile"
-	doDEPNotify "Status: updating preboot to prevent issue running startosinstall on M1 Macs"
-	result=$(diskutil apfs updatepreboot / | grep "overall error=(ZeroMeansSuccess)=0")
-	# check if it went as planned
-	if [[ $? != 0 ]]; then
-		doDEPNotify "Status: preboot update failed!"
-		doDEPNotify "Command: Quit: Please get assistance, bailing out..."
-		exit 1
-	fi
-fi
+# arch=$(/usr/bin/arch)
+# 	Run updatepreboot on a Silicon M1 Mac to prevent issue with startosinstall complaining about user not being an admin
+# if [[ "$arch" == "arm64" ]]; then 
+# 	echo "Command: WindowStyle: Activate" >> "$DEPNotify_CommandFile"
+# 	doDEPNotify "Status: updating preboot to prevent issue running startosinstall on M1 Macs"
+# 	result=$(diskutil apfs updatepreboot / | grep "overall error=(ZeroMeansSuccess)=0")
+# 	check if it went as planned
+# 	if [[ $? != 0 ]]; then
+# 		doDEPNotify "Status: preboot update failed!"
+# 		doDEPNotify "Command: Quit: Please get assistance, bailing out..."
+# 		exit 1
+# 	fi
+# fi
 
 # start the download, and then erase-install 
 doDEPNotify "Status: starting macOS installer check, and download if needed"
-/Library/Management/erase-install/erase-install.sh --replace_invalid --sameos
+#/Library/Management/erase-install/erase-install.sh --update --sameos
+/Library/Management/erase-install/erase-install.sh --update
 
 #doDEPNotify "Command: WidowStyle: Activate"
 
 doDEPNotify "Status: starting macOS installer with erase-install option"
-/Library/Management/erase-install/erase-install.sh --sameos --erase
+#/Library/Management/erase-install/erase-install.sh --sameos --erase
+/Library/Management/erase-install/erase-install.sh --erase
 
 # script is supposed to be aborted by macOS' installer startos --eraseinstall at this point
 #[[ -x "$DEPNotify/Contents/MacOS/DEPNotify" ]] && open "$DEPNotify"
